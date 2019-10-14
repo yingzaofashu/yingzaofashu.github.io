@@ -11,3 +11,7 @@ GitHub.com使用其自己的Markdown语法版本，该版本提供了一组附�
 ```
 
 It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com)
+
+https://octodex.github.com/images/yaktocat.png
+
+！[Yaktocat的图像]（https://octodex.github.com/images/yaktocat.png）
