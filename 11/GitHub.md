@@ -14,4 +14,12 @@ It's very easy to make some words **bold** and other words *italic* with Markdow
 
 https://octodex.github.com/images/yaktocat.png
 
-！[Yaktocat的图像]（https://octodex.github.com/images/yaktocat.png）
+![sdf水电费](https://octodex.github.com/images/yaktocat.png)
+
+
+
+  ![ Yaktocat ](https://octodex.github.com/images/yaktocat.png)
+
+![wer](https://octodex.github.com/images/yaktocat.png)
+
+![sdfsd](E:\Desktop\wer.png)
