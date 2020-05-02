@@ -20,7 +20,7 @@ yjfang@mit.edu, yamakei@mit.edu, nino@milab.tytlabs.co.jp, bkph@ai.mit.edu, masa
 
 Automatic detection of pedestrians at night has attracted more and more attention. Eighty percent of police reports [8] cited driver errors as the primary cause of vehicle crashes. Because depth perception, color recognition, and peripheral vision are all impaired after sundown, 3–4 times as many deaths occur during night-time driving than day-time driving. Also, people’s visual capabilities deteriorate substantially as they age, as is shown in figure 1, which compares the visual ability of a driver of age 60 with those of a driver of age 20. A 50-year-old driver needs twice as much light to see as does a 30-year-old [1].
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image001.jpg)
+![img](https://ziyanliupb.github.io/01/clip_image001.jpg)
 
 Fig. 1. Vision Degradation for Senior People. (Image Source: MIT Age Lab.)
 
@@ -32,7 +32,7 @@ Pedestrian detection [5] [14] includes two phases: “segmentation” locates mu
 
 Both performance measures lie in the range [0*,* 1]. The best segmentation performance is achieved when both measures are 1, which means that ROIs and actual pedestrian regions overlap completely. High segmentation accuracy with low efficiency indicates that, while most pedestrian regions are detected, this is at the cost of a large unnecessary ROI area. Conversely, low segmentation accuracy with high efficiency indicates that the ROIs capture only a small portion of the pedestrians, though most ROI regions are within pedestrian regions.
 
-​               ![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image003.jpg) (a)   ![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image005.jpg) (b)
+​               ![img](https://ziyanliupb.github.io/01/clip_image003.jpg) (a)   ![img](https://ziyanliupb.github.io/01/clip_image005.jpg) (b)
 
 Fig. 2. Segmentation/Classification Performance Index Definition. (a): Segmentation Accuracy/Efficiency definition. (b): ROC boundary/curve definition for multi-dimensional-feature based classification: false alarm rate (*X* axis) vs. detection rate (*Y* axis). Different points correspond to multi-dimensional-feature-based classification results using different multi-dimensional thresholds. Solid curve is **ROC boundary**, the upper/left boundary of all classification performance points. Dashed and dotted curves are ROC curves for 1D-feature-based classification.
 
@@ -48,7 +48,7 @@ Pedestrian detection using infrared images has its own advantages as well as dis
 
 Thus, current infrared-based pedestrian detection research is still limited [6][7][11][12][16][18]. Both segmentation accuracy and classification reliability of early night vision research needs to be significantly improved for it to be used practically [18][12]. For example in winter, to have a false-alarm rate around 2.63% [18], the detection rate has to be limited to only 35%. In summer, to have 75% to 90% detection rate, the false-alarm rate has to be raised to 100% [12] as shown in figure 3(a). Below we will discuss inherent difficulties in two phases and then review related current work.
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image009.gif)
+![img](https://ziyanliupb.github.io/01/clip_image009.gif)
 
 ​                        (a)                                                (b)                              (c)
 
@@ -62,7 +62,7 @@ Conventionally, segmentation based on depth information is more straightforward 
 
 The above well known fast segmentation features are non-applicable to far-infrared images because of their unique properties. It is also hard to segment pedestrians by grouping bright spots belonging to pedestrians based only on their pixel intensities. Using one fixed brightness threshold, for example, will lead to several separated bright spots at both pedestrian regions and other noise resources, with results highly sensitive to the choice of brightness thresholds. If introducing “Template-Shape-based” multi-scale brute-force searching as some night vision algorithms do (as shown in Figure 3(b)), segmentation ROI outputs are all candidate pedestrian patches of different sizes and aspect ratios, at multiple initial locations. The total number of ROIs for completely blind multi-scale brute force searching is as follows:
 
-​                          ![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image011.gif)      ∝        *n**row* ∗ *n**column* ∗ *n**scale*                                            (1)
+​                          ![img](https://ziyanliupb.github.io/01/clip_image011.gif)      ∝        *n**row* ∗ *n**column* ∗ *n**scale*                                            (1)
 
 where *nscale* is the number of scales in estimating pedestrian sizes, *nicenter*−*pos* is proportional to the image size ( *nrow* ∗*ncolumn* ), which is the number of initial ROI center positions that must be tried when testing at different scales. The large search space for blind searching is a serious limitation in Different segmentation algorithms take advantage of different features to decrease *nROI* and to expedite the searching process. To decrease *ncenter*−*pos*, [18] searches bright and round regions as potential pedestrian heads in infrared images. [11] searches hot symmetrical ROIs with specific size and aspect ratio based on the “Symmetry Property” of pedestrians and their brightness[9]. To decrease *nscale*, [18] and [11] assume flat roads so that pedestrians’ distance can be estimated based on pedestrians’ vertical positions in images. [18] first detects road surface boundaries in order to estimate pedestrians’ sizes and height and remove impossible pedestrian size/position combinations. [11] calibrates infrared cameras to build correspondences between image lines and distances in the 3D world for pedestrian size estimation. [12] does not make any assumptions and searches only three pedestrian sizes in a multi-scale brute force approach. The segmentation accuracy is limited compared with [11][18]. For real-world applications, segmentation algorithms need to further improve speed and accuracy and make fewer assumptions on the driving environment.
 
@@ -102,11 +102,11 @@ Based on the above properties of the bright-pixel-vertical-projection curves, we
 
 \1.   Adaptively choose an brightness threshold using equation (2). Record the number of bright pixels in each column in the bright-pixel-vertical-projection curves. We select a large constant “Intensity Margin” in equation (2) that
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image014.gif)
+![img](https://ziyanliupb.github.io/01/clip_image014.gif)
 
 ​                                       (a)                                 (b)
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image017.gif)
+![img](https://ziyanliupb.github.io/01/clip_image017.gif)
 
 ​                                       (c)                                 (d)
 
@@ -156,7 +156,7 @@ In figure 5(a), we propose a geometric pedestrian-size-model that defines one pe
 
 Among multiple candidate regions defined previously within a vertical image stripe, there is at most one actual pedestrian image region. Choosing one candidate pedestrian region is essentially a classification problem. We first use one histogram-based classification feature to search for the best candidate within each image stripe. After obtaining one candidate for each image stripe, we further determine whether it is a actual pedestrian image using multi-dimensional classification features explained in the next section. Details of the histogram-based feature and other classification features will be explained in section III. It is worth mentioning that we do not need to use a threshold in the searching process since we choose ROIs that are closest to our default pedestrian template (figure 3(c)) in histogram feature space.
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image022.gif)
+![img](https://ziyanliupb.github.io/01/clip_image022.gif)
 
 ​         (a)                       (b)                               (c)                               (d)
 
@@ -184,13 +184,13 @@ A.1 Statistical Similarity of Brightness Histograms for Pedestrian ROIs
 
 In section I-B, we have mentioned that pedestrian regions in infrared images are complex and not homogeneous. However, when pedestrians change poses, the intensity patterns should be consistent for similar body areas in different infrared images. Because of similar body temperatures and similar pedestrian surface properties, this observation applies not only for the same pedestrian of different poses, but also for different pedestrians with different gender, clothing, and in different seasons. Thus, there exists the similarity among image-brightness-histogram-curves for pedestrian patches containing different people, with different poses, and in different seasons. This property is demonstrated in histogram curve comparison in figure 6. Figure 6(a0) is our default pedestrian template cut from a summer sequence. Figure 6(a1) shows seven pedestrian ROIs from four winter images, in which pedestrians have different poses and are of different gender. Figure 6(b1) demonstrates the similarity among the brightness-histogram-curves for the seven pedestrian regions. Figure 6(c1) compares the average brightness-histogram-curves of the above seven pedestrian regions from winter images(solid line) with the histogram curve for the pedestrian template from summer images(dashed line) in figure 6(a0).
 
-We further demonstrate statistical histogram similarity for pedestrian regions through the variation of brightnesshistogram-curves from 911 rectangular pedestrian regions in seven different driving sequences. Figure 7(a) shows the examples of pedestrian appearances and sizes in two sample sequences. We normalize all pedestrian patches to a standard size [58 × 21] (1218 pixels) before calculating their smoothed brightness-histogram-curves, i.e.,![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image024.gif)), which is the number of pixels with brightness *i*. Figure 7(b) defines the “histogram variation curve,” i.e., the distribution of histogram variation value *hm*(*i*)−*hn*(*i*) for all brightness *i*. In this way, the variation of all 911 histogram curves *histmROI* from their average histogram *histmean* is presented as the collective “histogram variation curve” in figure 7(c), which resembles a Gaussian shape (of zero mean) with certain skewness. We can see that most histogram shape variation is within [-10, 10] pixels, which is only 8.2% of the largest variation (1218 pixels). The fact provides us statistical evidence that histogram curves for pedestrian regions are very similar.
+We further demonstrate statistical histogram similarity for pedestrian regions through the variation of brightnesshistogram-curves from 911 rectangular pedestrian regions in seven different driving sequences. Figure 7(a) shows the examples of pedestrian appearances and sizes in two sample sequences. We normalize all pedestrian patches to a standard size [58 × 21] (1218 pixels) before calculating their smoothed brightness-histogram-curves, i.e.,![img](https://ziyanliupb.github.io/01/clip_image024.gif)), which is the number of pixels with brightness *i*. Figure 7(b) defines the “histogram variation curve,” i.e., the distribution of histogram variation value *hm*(*i*)−*hn*(*i*) for all brightness *i*. In this way, the variation of all 911 histogram curves *histmROI* from their average histogram *histmean* is presented as the collective “histogram variation curve” in figure 7(c), which resembles a Gaussian shape (of zero mean) with certain skewness. We can see that most histogram shape variation is within [-10, 10] pixels, which is only 8.2% of the largest variation (1218 pixels). The fact provides us statistical evidence that histogram curves for pedestrian regions are very similar.
 
 A.2 The Classification Ability of Histogram Feature
 
 Figure 6(b2) shows the comparison among all histogram curves for non-pedestrian ROIs in figure 6(a2), and figure 6(c2) shows the comparison between their average and the brightness histogram of a summer pedestrian template, as shown in figure 6(a0). The results are drawn with the same scale as figure 6(b1)(c1) with similar comparisons for pedestrian ROIs. The comparison between figure 6 (b) and (c) reveals that histogram features for pedestrian/non-pedestrian ROIs are different in most cases. Because of the histogram similarity for pedestrian regions, as well as histogram differences between pedestrian ROIs and non-pedestrian ROIs, pedestrians can be identified through histogram-similarity-comparison between ROIs and one generic pedestrian template. Without losing generality, we choose figure 6(a0) as our generic pedestrian template. The **Histogram Difference** index is defined as the weighted summation for the square of brightness histogram difference at each brightness *i* as below:
 
-​                      Histogram Difference =![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image026.gif)                       (5)
+​                      Histogram Difference =![img](https://ziyanliupb.github.io/01/clip_image026.gif)                       (5)
 
 where *histROI* and *histtemplate* are histogram curves for ROIs and a template respectively, *α* is normalization coefficient, *weight*(*i*) is weighting function that is fixed for all classification calculations. Typically segmentation errors might introduce extra dark background or bright regions, leading to higher histogram curve peaks at small/large brightness value. *Weight*(*i*) is set to be small when brightness *i* is very dark or bright in order to reduce the impact of segmentation errors. The expected value for pedestrian ROIs is 0. The larger the histogram difference for an ROI, the less likely is the ROI to be a pedestrian.
 
@@ -198,11 +198,11 @@ where *histROI* and *histtemplate* are histogram curves for ROIs and a template 
 
 Inertial-based classification feature is based on the inertial similarity among pedestrian regions, and is also shapeindependent. We define inertial value for one image patch as in equation (6):
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image028.gif)                0                  50                100               150               200                 250 (c1)            0                  50                100               150               200                 250 (c2)
+![img](https://ziyanliupb.github.io/01/clip_image028.gif)                0                  50                100               150               200                 250 (c1)            0                  50                100               150               200                 250 (c2)
 
 Fig. 6. Properties of Brightness-histogram-curves for Pedestrian/non-Pedestrian ROIs. (a0): Pedestrian from summer data. Used as default template in our algorithm. (a1): Pedestrian ROIs with different poses. (a2): Non-pedestrian ROIs. (a1)(a2) are segmentation results for winter data. For (b1)(b2): Brightness histograms for (a1)(a2). (b1): demonstrates histogram similarity among winter pedestrian ROIs. (b2): demonstrates the histogram variation among winter non-pedestrian ROIs. For (c1)(c2): Solid lines: Average brightness histogram for winter pedestrian ROIs (b1) and winter non-pedestrian ROIs (b2) respectively. Dashed lines: Histogram curve for summer pedestrian (a0). (c1): demonstrates the histogram similarity between winter pedestrians and summer pedestrian template. (c2): demonstrates the disparity between winter non-pedestrian ROIs and summer pedestrian template. For (b1)(b2)(c1)(c2): *X* axis: Image intensity range (0-255). *Y* axis: brightness histogram.
 
-​                                   image inertial =![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image030.gif)                               (6)
+​                                   image inertial =![img](https://ziyanliupb.github.io/01/clip_image030.gif)                               (6)
 
 where *I*(*x,y*) is the pixel brightness values for image patches after size normalization, *d*(*x,y*) is the distance from a pixel to image center as shown in figure 8(a). Image inertial value is the summation of rotation momentum with respect to the image center for all pixels while subjected to a scaling factor. The scaling factor (denominator) is the summation of rotation momentum for all pixels in our generic pedestrian template patch in figure 6(a0). Inertial values for pedestrian patches with different poses should be close to 1. In the next two sections, we will discuss the statistical similarity between all pedestrian ROI inertial values, and demonstrate its classification ability.
 
@@ -210,11 +210,11 @@ B.1 The Statistical Similarity of Pedestrian ROI Inertial
 
 For the 911 pedestrian regions mentioned in section III-A.1(examples shown in figure 7(a)), their inertial values are calculated and plotted in figure 8 (b) and their distribution is plotted in figure 8(c), which resembles Rayleigh distribution. The average inertial value is 1*.*03, which shows that inertial values are centered around its expected value.
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image033.gif)
+![img](https://ziyanliupb.github.io/01/clip_image033.gif)
 
 ​                                   (a1)                                     (a2)
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image036.gif)
+![img](https://ziyanliupb.github.io/01/clip_image036.gif)
 
 ​                                  (b)                                                (c)
 
@@ -232,7 +232,7 @@ In infrared images, there exists brightness contrast between pedestrian regions 
 
 We evaluate the contrast between an ROI and its vertical neighborhoods by comparing the vertical edges within these regions as shown in figure 9(a)(b). **Vertical edges** are defined as the image pixels with “pixel-horizontal-spacing” (defined in equation (3), section II-B.2) larger than a constant threshold. For a rectangular ROI, its **upper/lower vertical neighborhood** is a rectangular region that is right above/below the ROI with the same column width and
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image040.gif)
+![img](https://ziyanliupb.github.io/01/clip_image040.gif)
 
 ​                 (a) hspace.2in                      (b) hspace.2in                           (c)
 
@@ -254,7 +254,7 @@ The process is called “contrast-based non-pedestrian ROI-removal.” Figure 9 
 
 It is worth mentioning that we use one constant and large threshold for all sequence frames to determine vertical edges based on their “pixel-horizontal-spacing.” Usually the performance of “contrast-based non-pedestrian ROI-removal” is robust to threshold choices since the image contrast between ROIs and their neighborhoods is robust to the threshold choices. In the worst case that a threshold is too large, both “ROI row-edge indices” and “upper/lower row-edge indices” for non-pedestrian ROIs are small and the non-pedestrian ROIs cannot be removed based on the two above conditions. It is acceptable since further histogram/inertial-based classification can identify them.
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image044.gif)
+![img](https://ziyanliupb.github.io/01/clip_image044.gif)
 
 ​                                   (a)                     (b)                     (c)
 
@@ -262,7 +262,7 @@ Fig. 9. “Contrast-based non-Pedestrian ROI Removal” for ROIs in Figure 5(d).
 
 C.1 Statistical Distributions of Contrast-based Classification Feature
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image047.gif)
+![img](https://ziyanliupb.github.io/01/clip_image047.gif)
 
 ​                                    (a)                                       (b)
 
@@ -280,7 +280,7 @@ D.1 2D Histogram/Inertial-based Classification
 
 For 2D histogram/inertial-based classification method, the similarities between ROIs and one pedestrian template (in figure 6(a0)) are measured through 2D histogram/inertial feature vectors. The statistical distribution of 2D histogram/inertial feature vectors for all ROIs from three sequences in figure 17(a1)(b1)(c1) (details in section IV, table I) are respectively presented in figure 11(a)(b), 12(a)(b), and figure 13(b)(c). Figures for both pedestrian ROIs and nonpedestrian ROIs in the same sequences are plotted with the same axis to demonstrate the distribution differences of feature vectors. We can see that 2D feature values for all pedestrian ROIs are similar and close to their expected value [1*,* 0] (*X* axis: inertial. *Y* axis: histogram.) as shown in figure 11(a), 12(a), and figure 13(b). Histogram/inertial feature vectors for non-pedestrian ROIs are away from [1*,* 0] and much more diversified, as shown in figure 11(b), 12(b), and figure 13(c). (Non-pedestrian ROIs in figure 13(c) are after “contrast-based non-pedestrian ROI-removal.”) The comparison confirms that 2D histogram/inertial-based features are efficient classification feature vectors.
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image049.gif)
+![img](https://ziyanliupb.github.io/01/clip_image049.gif)
 
 Fig. 11. 2D Feature Vectors for Pedestrian ROIs and non-Pedestrian ROIs from Sequence 1. For (a)(b): 2D inertial/histogram feature vectors for pedestrian ROIs and non-pedestrian ROIs respectively. *X* axis: Inertial feature. *Y* axis: “Histogram Difference,” for ROIs and pedestrian template in figure 6(a0). For (c)(d): 2D inertial/pixel-comparison based feature vectors for pedestrian ROIs and non-pedestrian ROIs respectively. *X* axis: Inertial feature. *Y* axis: “Image-Intensity-Difference” between ROIs and pedestrian template in figure 6(a0). In figure 11(a) and (b), histogram feature points for 19*.*64% of pedestrian ROIs and 16*.*13% of non-pedestrian ROIs overlap in their data ranges. In figure 11(c) and (d), pixel-comparison based feature points for all pedestrian ROIs and 85*.*74% of non-pedestrian ROIs overlap in their data ranges. The comparison between (a)(b) and (c)(d) shows the advantages of the histogram feature over the shape-dependent pixel-comparison based feature.
 
@@ -288,7 +288,7 @@ D.2 3D Histogram/Inertial/Contrast-based Classification
 
 Our 3D histogram/inertial-feature/contrast-based classification algorithm first calculates **ROI contrast-feature vectors** for each ROI, then removes a few non-pedestrian ROIs based on two conditions mentioned in section III-C, and finally identifies pedestrians among the rest of ROIs through 2D histogram/inertial based classification. An example of the process is shown in figure 10 and figure 13 for sequence 3 shown in figure 17(c1) (details in section IV, table I). After segmentation, there are total 248 pedestrian ROIs and 854 non-pedestrian ROIs whose contrast-feature vectors are plotted in figure 10. In the process of “contrast-based non-pedestrian ROI-removal,” 284 non-pedestrian ROIs lacking in clear vertical contrast are identified and removed. The inertial vs. histogram 2D feature vectors for 284 removed non-pedestrians, 248 segmented pedestrian ROIs and 570 remained non-pedestrian ROIs are respectively plotted in figure 13(a)(b)(c). The comparison between figure 13(a)(b) shows that 2D feature points for 76*.*76% of removed nonpedestrian ROIs are within the data range for pedestrian ROIs. The contrast-based feature helps to remove potential ambiguity using 2D histogram/inertial-based classification alone. Therefore, after “contrast-based non-pedestrian ROIremoval”, the percentage of segmented non-pedestrian ROIs, whose 2D feature vectors overlap with that of segmented pedestrian ROIs in 2D feature space, has dropped from 47*.*78% to 25*.*53% (as shown in figure 13(b)(c)). Thus when
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image052.gif)
+![img](https://ziyanliupb.github.io/01/clip_image052.gif)
 
 ​            00              1              2              3              4              5              6              7               8 (a)       00              1              2              3              4              5              6              7                8 (b)
 
@@ -296,7 +296,7 @@ Fig. 12. 2D Inertial/Histogram Feature Vectors for Pedestrian ROIs and non-Pedes
 
 detection rate is 100%, the false alarm rate can be dropped from 47*.*78% to 25*.*53% as shown figure 16(c1) and (c2), improving classification performance.
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image054.gif)
+![img](https://ziyanliupb.github.io/01/clip_image054.gif)
 
 Fig. 13. 2D Inertial/Histogram Feature Vectors for Pedestrian/non-pedestrian ROIs from Sequence 3 after “contrast-based non-pedestrian ROI-removal.” (a): For removed non-pedestrian ROIs. (b): For original pedestrian ROIs. (c): For remained non-pedestrian ROIs. *X* axis: Inertial feature. *Y* axis: Histogram feature.
 
@@ -308,7 +308,7 @@ We evaluate three feature definitions for ROIs in figure 6(a1)(a2) and plot thre
 
 To statistically demonstrate the above advantages, similar comparison is shown in figure 11 for a large set of ROIs from sequence 1 shown in figure 17(a1) (details in section IV, table I). Figure 11(a)(b) are inertial feature (*X* axis) vs. histogram feature (*Y* axis), and figure 11(c)(d) are inertial feature (*X* axis) vs. pixel-comparison based feature (*Y* axis). In the vertical axis of figure 11(a) and (b), histogram feature points for 19*.*64% of pedestrian ROIs and 16*.*13% of nonpedestrian ROIs overlap in their data ranges. In the vertical axis of figure 11(c) and (d), pixel-comparison based feature points for all pedestrian ROIs and 85*.*33% of non-pedestrian ROIs overlap. In 2D inertial vs. histogram space, the ratios of overlapped range over the data range for all pedestrian ROIs and for all non-pedestrian ROIs are respectively 12*.*13% and 16*.*31%. As expected, the histogram features provide better classification performance than the shape-dependent pixel-comparison based feature. Classification based on both histogram and inertial further improve performance. More results will be shown in the next section to demonstrate the advantages of multi-dimensional-classification as shown in figure16.
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image058.gif)![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image060.jpg)(a)
+![img](https://ziyanliupb.github.io/01/clip_image058.gif)![img](https://ziyanliupb.github.io/01/clip_image060.jpg)(a)
 
 (b)
 
@@ -367,7 +367,7 @@ Classification Algorithms & Performance for three Examples
 | 2nd  | 2D Inertial/Histogram           | Fig.17(b3) | Fig.12          | Fig.16(b),  3(a) |
 | 3rd  | 3D  Inertial/Histogram/Contrast | Fig.17(c3) | Fig.13,  Fig.10 | Fig.16(c), 3(a)  |
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image062.gif)
+![img](https://ziyanliupb.github.io/01/clip_image062.gif)
 
 Fig. 15. Segmentation Evaluation for 3 Sample Sequences. Detection Accuracy vs. Efficiency. *X* axis: frame segmentation side-efficiency. (a): Sequence 1. (b): Sequence 2. (c): Sequence 3.
 
@@ -375,7 +375,7 @@ Fig. 15. Segmentation Evaluation for 3 Sample Sequences. Detection Accuracy vs. 
 
 
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image064.gif)
+![img](https://ziyanliupb.github.io/01/clip_image064.gif)
 
 axis: frame segmentation side-accuracy. *Y*
 
@@ -393,7 +393,7 @@ Fusing histogram-based and inertial-based classification substantially improves 
 
 The contrast classification feature helps to remove the ambiguity. Figure 16(c1) and figure 16(c2) respectively show the different classification results before and after “contrast-based non-pedestrian ROI-removal.” The advantage of 3D histogram/inertial/contrast-based classification over 2D histogram/inertial-based classification can be seen from the difference between solid lines in figure 16(c1) and (c2). The comparison between dashed (or dotted) lines in figure 16(c1) and (c2) shows the advantage of 2D histogram/contrast-based (or 2D inertial/contrast-based) classification over 1D histogram (or 1D inertial) based classification. For three sequences, we only apply 3D histogram/inertial/contrast-based classification to the most complicated sequence 3 as shown in figure 16(c2) since 1D or 2D classification has already provided reliable results for the rest of sequences.
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image069.gif)In sum, the segmentation performance illustrated in figure 15 shows that segmented pedestrian regions are relatively accurate and efficient. The classification performance illustrated in figure 16 show that most false alarms are removed. (b)
+![img](https://ziyanliupb.github.io/01/clip_image069.gif)In sum, the segmentation performance illustrated in figure 15 shows that segmented pedestrian regions are relatively accurate and efficient. The classification performance illustrated in figure 16 show that most false alarms are removed. (b)
 
 (c2)
 
@@ -449,19 +449,19 @@ On the whole, though the proposed pedestrian detection is by no means perfect fo
 
 [19]   Liang Zhao and Charles E. Thorpe. Stereo and neural network-based pedestrian detection. *IEEE Transactions on ITS, Vol. 1 No.3*, pages 298–303, Sept. 2000.
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image082.gif)(a1)
+![img](https://ziyanliupb.github.io/01/clip_image082.gif)(a1)
 
 (a2)
 
 (a3) (a) Sequence 1: brightness-based segmentation + Histogram-based classification
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image095.gif)(b1)
+![img](https://ziyanliupb.github.io/01/clip_image095.gif)(b1)
 
 (b2)
 
 (b3) (b) Sequence 2: brightness-based segmentation + Histogram/Inertial-based classification
 
-![img](file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image108.gif)(c1)
+![img](https://ziyanliupb.github.io/01/clip_image108.gif)(c1)
 
 (c2)
 
