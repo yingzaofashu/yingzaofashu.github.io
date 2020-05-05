@@ -1,0 +1,441 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title></title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+html {
+	font-size: 19px;
+}
+
+html, body {
+	margin: auto;
+	background: #fefefe;
+}
+body {
+	font-family: "Vollkorn", Palatino, Times;
+	color: #333;
+	line-height: 1.4;
+	text-align: justify;
+}
+#write {
+	max-width: 960px;
+	margin: 0 auto;
+	margin-bottom: 2em;
+	line-height: 1.53;
+	padding-top: 40px;
+}
+
+/* Typography
+-------------------------------------------------------- */
+
+#write>h1:first-child,
+h1 {
+	margin-top: 1.6em;
+	font-weight: normal;
+}
+
+h1 {
+	font-size:3em;
+}
+
+h2 {
+	margin-top:2em;
+	font-weight: normal;
+}
+
+h3 {
+	font-weight: normal;
+	font-style: italic;
+	margin-top: 3em;
+}
+
+h1, 
+h2, 
+h3{
+	text-align: center;
+}
+
+h2:after{
+	border-bottom: 1px solid #2f2f2f;
+    content: '';
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+    height: 1px;
+}
+
+h1+h2, h2+h3 {
+	margin-top: 0.83em;
+}
+
+p,
+.mathjax-block {
+	margin-top: 0;
+	-webkit-hypens: auto;
+	-moz-hypens: auto;
+	hyphens: auto;
+}
+ul {
+	list-style: square;
+	padding-left: 1.2em;
+}
+ol {
+	padding-left: 1.2em;
+}
+blockquote {
+	margin-left: 1em;
+	padding-left: 1em;
+	border-left: 1px solid #ddd;
+}
+code,
+pre {
+	font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
+	font-size: .9em;
+	background: white;
+}
+.md-fences{
+	margin-left: 1em;
+	padding-left: 1em;
+	border: 1px solid #ddd;
+	padding-bottom: 8px;
+	padding-top: 6px;
+	margin-bottom: 1.5em;
+}
+
+a {
+	color: #2484c1;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a img {
+	border: none;
+}
+h1 a,
+h1 a:hover {
+	color: #333;
+	text-decoration: none;
+}
+hr {
+	color: #ddd;
+	height: 1px;
+	margin: 2em 0;
+	border-top: solid 1px #ddd;
+	border-bottom: none;
+	border-left: 0;
+	border-right: 0;
+}
+.ty-table-edit {
+	background: #ededed;
+    padding-top: 4px;
+}
+table {
+	margin-bottom: 1.333333rem
+}
+table th,
+table td {
+	padding: 8px;
+	line-height: 1.333333rem;
+	vertical-align: top;
+	border-top: 1px solid #ddd
+}
+table th {
+	font-weight: bold
+}
+table thead th {
+	vertical-align: bottom
+}
+table caption+thead tr:first-child th,
+table caption+thead tr:first-child td,
+table colgroup+thead tr:first-child th,
+table colgroup+thead tr:first-child td,
+table thead:first-child tr:first-child th,
+table thead:first-child tr:first-child td {
+	border-top: 0
+}
+table tbody+tbody {
+	border-top: 2px solid #ddd
+}
+
+.task-list{
+	padding:0;
+}
+
+.md-task-list-item {
+	padding-left: 1.6rem;
+}
+
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.33333333rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #fefefe;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+.md-tag {
+	color: inherit;
+	font: inherit;
+}
+#write pre.md-meta-block {
+	min-height: 35px;
+	padding: 0.5em 1em;
+}
+#write pre.md-meta-block {
+	white-space: pre;
+	background: #f8f8f8;
+	border: 0px;
+	color: #999;
+	
+	width: 100vw;
+	max-width: calc(100% + 60px);
+	margin-left: -30px;
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+
+	margin-bottom: 2em;
+	margin-top: -1.3333333333333rem;
+	padding-top: 26px;
+	padding-bottom: 10px;
+	line-height: 1.8em;
+	font-size: 0.9em;
+	font-size: 0.76em;
+	padding-left: 0;
+}
+.md-img-error.md-image>.md-meta{
+	vertical-align: bottom;
+}
+#write>h5.md-focus:before {
+	top: 2px;
+}
+
+.md-toc {
+	margin-top: 40px;
+}
+
+.md-toc-content {
+	padding-bottom: 20px;
+}
+
+.outline-expander:before {
+	color: inherit;
+	font-size: 14px;
+	top: auto;
+	content: "\f0da";
+	font-family: FontAwesome;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  	content: "\f0d7";
+}
+
+/** source code mode */
+#typora-source {
+	font-family: Courier, monospace;
+    color: #6A6A6A;
+}
+
+.html-for-mac #typora-sidebar {
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property,
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+	color: #428bca;
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+	color: #777777;
+}
+
+.typora-node .file-list-item-parent-loc, 
+.typora-node .file-list-item-time, 
+.typora-node .file-list-item-summary {
+	font-family: arial, sans-serif;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: calc(1rem - 12px);
+}
+
+.md-mathjax-midline {
+	background: #fafafa;
+}
+
+.md-fences .code-tooltip {
+	bottom: -2em !important;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node first-line-indent'><p><em><span>Sensors</span></em><span> </span><strong><span>2014</span></strong><span>, </span><em><span>14</span></em><span>, 6666-6676; doi:10.3390/s140406666 </span><strong><span>OPEN ACCESS</span></strong><span>  </span></p><p><strong><span>*sensors</span><span>*</span></strong><span> </span></p><p><strong><span>ISSN 1424-8220</span></strong><span> </span><a href='http://www.mdpi.com/journal/sensors' target='_blank' class='url'>www.mdpi.com/journal/sensors</a></p><h1><a name="article" class="md-header-anchor"></a><em><span>Article</span></em></h1><p><strong><span>Thermal-Infrared Pedestrian ROI Extraction through Thermal and Motion Information Fusion</span></strong><span> </span></p><p>&nbsp;</p><p><span>1    Departamento de Sistemas Informáticos, Universidad de Castilla-La Mancha, 02071-Albacete, Spain; E-Mail: Maria.LBonal@uclm.es </span></p><p><span>2    Instituto de Investigación en Informática de Albacete, 02071-Albacete, Spain; E-Mail: </span><a href='mailto:jserranocuerda@gmail.com' target='_blank' class='url'>jserranocuerda@gmail.com</a><span> </span></p><p><strong><span>*</span></strong><span> Author to whom correspondence should be addressed; E-Mail: Antonio.Fdez@uclm.es; Tel.: +34-967-599-200; Fax: +34-967-599-224.  </span></p><h2><a name="received-14-march-2014-in-revised-form-2-april-2014--accepted-4-april-2014--published-10-april-2014" class="md-header-anchor"></a><span>Received: 14 March 2014; in revised form: 2 April 2014 / Accepted: 4 April 2014 / Published: 10 April 2014 </span></h2><p><span> </span></p><p><img src="file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image001.gif" referrerpolicy="no-referrer" alt="img"></p><p><strong><span>Abstract:</span></strong><span> This paper investigates the robustness of a new thermal-infrared pedestrian detection system under different outdoor environmental conditions. In first place the algorithm for pedestrian ROI extraction in thermal-infrared video based on both thermal and motion information is introduced. Then, the evaluation of the proposal is detailed after describing the complete thermal and motion information fusion. In this sense, the environment chosen for evaluation is described, and the twelve test sequences are specified. For each of the sequences captured from a forward-looking infrared FLIR A-320 camera, the paper explains the weather and light conditions under which it was captured. The results allow us to draw firm conclusions about the conditions under which it can be affirmed that it is efficient to use our thermal-infrared proposal to robustly extract human ROIs. </span></p><p><strong><span>Keywords:</span></strong><span> thermal-infrared video; pedestrians; segmentation; ROI extraction; evaluation </span></p><p><span> [</span><a href='#_ftnref1'><span>1</span><span>]</span></a><span> </span><strong><span>. Introduction</span></strong><span> </span></p><p><span>The detection of pedestrians is a key application in the video surveillance domain [1]. Indeed, a number of surveillance applications require the detection and tracking of people to ensure security and safety [2,3]. The most widespread sensor technology for detecting pedestrians is for sure the use of gray scale [4,5] and color cameras [6,7]. However, using the visible-light information is problematic when facing quick changes in lighting or illumination problems. Now, thermal-infrared images have a number of distinctive features compared to frames acquired by a visible-light spectrum camera [8–11]. </span></p><p><span>In thermal-infrared video, the gray level value of the objects is set by their temperature and radiated heat, and is independent from lighting conditions. The most intuitive idea when performing a pedestrian detection algorithm in the thermal-infrared spectrum is to take advantage of the fact that humans usually appear warmer than other objects in the scene [12,13]. However, this is not always the case [14]. The main reason is that the properties of the objects in the scene (</span><em><span>i.e</span></em><span>., emissivity, reflectivity and transmissivity) and their wavelength affect the infrared images’ intensity, especially in summer afternoon. Obviously, the condition is usually well satisfied during winter and at night. These drawbacks make it impossible to detect humans exclusively using their intensity value. On the other hand, a great amount of infrared images have low spatial resolution and lower sensitivity than visible spectrum images due to the technological limitations of thermal-infrared cameras. These defects often result in low image quality and a great amount of image noise. </span></p><p><span>Many approaches in this spectrum combine appearance and shape properties since humans are initially detected according to the former (their appearance is usually brighter than other objects in the scene) and are filtered and classified based on the latter [15]. This paper introduces a new algorithm for robust ROI extraction of pedestrians in thermal-infrared video based on the authors’ previous works [16,17]. In addition to presenting the algorithm, the main objective of this article is to draw firm conclusions about the environmental conditions under which it can be affirmed that it is efficient to use thermal-infrared cameras to robustly detect pedestrians. </span></p><p><span>The rest of the article is organized as follows: Section 2 describes the new algorithm for pedestrian ROI extraction in the thermal-infrared spectrum. In Section 3 the algorithm is applied to twelve different video sequences recorded under very different environmental conditions. This way it is possible to determine which the suited ambient conditions are for using a thermal-infrared sensor in the proposed monitoring task. Finally, some conclusions are provided in Section 4. </span></p><h3><a name="2-pedestrian-roi-extraction-in-thermal-infrared-video" class="md-header-anchor"></a><span>2. Pedestrian ROI Extraction in Thermal-Infrared Video </span></h3><p><span>As previously explained, the infrared spectrum has many interesting features which can be exploited for robust human detection. Two of these properties are clearly important: (1) the independence of lighting conditions of the scene, and specially, (2) the fact that humans tend to be clearly highlighted respect to the background of the picture. Usually, humans’ heads also appear hotter than the rest of the body covered with clothes. This is why a </span><em><span>Thermal Analysis</span></em><span> is developed using these properties on each single frame of the video, that is, the current image frame, </span><em><span>I</span></em><span>(t). </span></p><p><span>In parallel, motion information between the current frame </span><em><span>I</span></em><span>(t) and the previous frame </span><em><span>I</span></em><span>(t−1) is performed under </span><em><span>Motion Analysis</span></em><span>. A visual representation of the approach is provided in Figure 1. Notice that the results of </span><em><span>Thermal Analysis</span></em><span> and </span><em><span>Motion Analysis</span></em><span> are fused (</span><em><span>ROI Fusion</span></em><span>) to take advantage of both thermal and motion information provided in the video sequence. </span><em><span>Blob Analysis</span></em><span> validates if a given blob corresponding to a supposed pedestrian contains one or more than one human. Lastly, </span><em><span>Pedestrian Confirmation</span></em><span> validates that a refined blob actually contains a valid pedestrian. </span></p><p><span> </span></p><p><strong><span>Figure 1.</span></strong><span> Algorithm for pedestrian ROI extraction in thermal-infrared video. </span></p><p><img src="file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image003.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><h4><a name="21-thermal-analysis" class="md-header-anchor"></a><span>2.1. Thermal Analysis </span></h4><p><span>A pedestrian ROI extraction based on thermal information is developed in the thermal-infrared spectrum using the properties already mentioned [15]. Pedestrian candidates are extracted in each image frame, solely based on their thermal properties. A set of restrictions on size and shape are applied on the adjusted candidates to eliminate potential false positives. Each one of the stages is now explained in more detail. </span></p><p><span>The algorithm starts with the analysis of input image, </span><em><span>I</span></em><span>(t), captured at time t. Image </span><em><span>I</span></em><span> is binarised in accordance with a threshold with the aim of isolating the spots related to the pedestrian candidates. This threshold obtains the image areas containing moderate heat blobs, thus probably belonging to pedestrians (pedestrian candidates). This way, warmer zones of the image are isolated where humans could be present. The threshold </span><em><span>TA</span></em><span> is calculated in function of the mean (</span><img src="file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image005.gif" referrerpolicy="no-referrer" alt="img"><span>) and the standard deviation (</span><img src="file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image007.gif" referrerpolicy="no-referrer" alt="img"><span>) of image </span><em><span>I,</span></em><span> as shown in Equation (1): </span></p><p><span>                                                </span><img src="file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image009.gif" referrerpolicy="no-referrer" alt="img"><span>                                (1) </span></p><p><span>Next, the algorithm performs morphological opening and closing operations to eliminate isolated pixels and to unite areas split during the binarization into mage blobs. A minimum area, </span><em><span>A</span></em><span>min–function through triangulation of the distance of the camera to the farthest objective–is established for a blob to be considered to contain one or more humans. The output of </span><em><span>Thermal Analysis</span></em><span> towards </span><em><span>ROI Fusion</span></em><span> is a list of regions of interest (ROIs) denominated </span><em><span>RTA</span></em><span>(t).</span></p><h4><a name="22-motion-analysis" class="md-header-anchor"></a><span>2.2. Motion Analysis </span></h4><p><span>We have previously explained that certain environmental conditions affect negatively the visual contrast in the thermal-infrared spectrum. For example, humans are very hard to find in warm environments where the scene temperature is similar to people’s temperature. Yet, if using the motion information in the scene, we can find humans in it since they do not tend to be static during long periods of time. Therefore, </span><em><span>Motion Analysis</span></em><span> is developed to take advantage of the motion information in the scene. </span></p><p><span>Here, the previous image, </span><em><span>I</span></em><span>(t−1), and the current one, </span><em><span>I</span></em><span>(t), are used. Notice that images are captured a frame rate of 5 images per second, which ensures enough movement and enables processing all the image frames in real-time. An image subtraction and thresholding is performed on these frames. The threshold is experimentally fixed to 16% of the maximum value of a 256 gray levels image; thus, threshold </span><em><span>mov</span></em><span> takes the value 16. It is calculated that a pixel (</span><em><span>x,y</span></em><span>) is “warm” if: </span></p><p><span>                                      </span><img src="file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image011.gif" referrerpolicy="no-referrer" alt="img"><span>                         (2) </span></p><p><span>Now, ROIs with area superior to </span><em><span>A</span></em><span>min and with a percentage of “warm” pixels greater than a rate threshold (experimentally fixed to 5% of the area of the ROI) are extracted into list </span><em><span>RMA</span></em><span>(t).</span></p><h4><a name="23-roi-fusion" class="md-header-anchor"></a><span>2.3. ROI Fusion </span></h4><p><span>The objective of </span><em><span>ROI Fusion</span></em><span> is to sum up or overlap the ROIs coming from </span><em><span>Thermal Analysis</span></em><span> and </span><em><span>Motion Analysis</span></em><span> to get a unique list of regions of interest </span><em><span>RF</span></em><span>(t). We are faced with three possibilities: </span></p><p><span>(1)     A ROI belonging to list </span><em><span>RTA</span></em><span>(t) has no common pixel with any ROI belonging to </span><em><span>RMA</span></em><span>(t): the ROI from </span><em><span>RTA</span></em><span>(t) is included as is in the new list of ROIs called </span><em><span>RF</span></em><span>(t). </span></p><p><span>(2)     A ROI belonging to list </span><em><span>RMA</span></em><span>(t) has no common pixel with any ROI belonging to </span><em><span>RTA</span></em><span>(t): the ROI from </span><em><span>RMA</span></em><span>(t) is included as is in the new list of ROIs called </span><em><span>RF</span></em><span>(t). </span></p><p><span>(3)     A ROI belonging to list </span><em><span>RTA</span></em><span>(t) has some common pixels with a given ROI belonging to </span><em><span>RMA</span></em><span>(t): the ROIs from </span><em><span>RTA</span></em><span>(t) and </span><em><span>RMA</span></em><span>(t) compose a new ROI containing all pixels from the previous ones; this new ROI is included in the new list of ROIs called </span><em><span>RF</span></em><span>(t).</span></p><p><span>Rules (1) and (2) show the possibilities to sum up the ROIs coming from both Thermal Analysis and Motion Analysis. Rule (3) demonstrates the case when both Thermal Analysis and Motion Analysis have detected the same candidates as pedestrians (or at least part of them).  </span></p><h4><a name="24-blob-analysis" class="md-header-anchor"></a><span>2.4. Blob Analysis </span></h4><p><span>This part of the algorithm works with the list </span><em><span>RF</span></em><span>(t). This list was obtained at the end of the previous section. At this point, there is a need to validate the content of each ROI to find out if it contains one single human candidate or more than one. Therefore, each detected ROI is individually processed. </span></p><p><span>2.4.1. ROI Width Adjustment </span></p><p><span>The first step of </span><em><span>Blob Analysis</span></em><span> consists in scanning </span><em><span>RF</span></em><span> by columns, adding the gray level value corresponding to each pixel in that column. This way, a histogram </span><em><span>H</span></em><span>[</span><em><span>i</span></em><span>] is obtained (see Equation (3)), which shows the zones of the current ROI that contain greater heat concentrations: </span></p><p><span>                                             </span><img src="file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image013.gif" referrerpolicy="no-referrer" alt="img"><span>                              (3) </span></p><p><span>A double purpose is pursued when computing the histogram. In first place, we want to increase the certainty of the presence of human heads. Secondly, as a ROI may contain several persons that are close enough to each other, the histogram helps separating human groups (if any) into single humans. This method, when looking for maxima and minima within the histogram allows differentiating among the people actually present in a particular ROI. </span></p><p><span>So, the histogram </span><em><span>H</span></em><span>[</span><em><span>i</span></em><span>] is scanned to separate grouped humans, if they exist in that ROI. Local maxima and local minima are searched in the histogram to establish the different heat sources with this purpose. To assess whether a histogram column contains a local maximum or minimum, a new threshold is fixed. We are looking for columns where the 60% of their pixels are below the mean gray value of </span><em><span>RF</span></em><span>, since those regions are supposed to belong to gaps between two humans. This way the list </span><em><span>RF</span></em><span> will form a new list of sub-ROIs </span><em><span>sRF</span></em><span>(t). Notice that if each </span><em><span>RF</span></em><span> contains a single human, </span><em><span>sRF</span></em><span>(t) will be equivalent to </span><em><span>RF</span></em><span>(t).</span></p><p><span>2.4.2. ROI Height Adjustment </span></p><p><span>All humans contained in a given sub-ROI of list </span><em><span>sRF</span></em><span>(t), obtained in the previous section, still possess the same height, namely the height of the original ROI. Now, we want to fit the height of each sub-ROI to the real height of the humans contained in it. For this purpose row adjustment is performed. The calculation is done separately on each sub-ROI to avoid the influence of the rest of image pixels on the result. This threshold uses the value of the sub-ROI mean gray level. Each sub-ROI is binarised in order to delimit its upper and lower limits. After this, a closing operation is performed to unite spots isolated in the binarisation. The newly obtained ROIs are now enlisted into </span><em><span>RC</span></em><span>(t). </span></p><h4><a name="25-pedestrian-confirmation" class="md-header-anchor"></a><span>2.5. Pedestrian Confirmation </span></h4><p><span>Now a final stage is needed for each ROI of list </span><em><span>RC</span></em><span>(t) to confirm if the human candidate is actually a human. Indeed, some incandescent spots in an image (such as light bulbs or big heat sources in general) can still be confused under certain circumstances with humans due to their heat properties. So an important step consists in verifying if one of these spots is being scanned instead of a human. </span></p><p><span>For this sake, firstly the human candidate’s ROI dimensions are checked. The first check consists in testing the ROI’s height/width ratio. If the human candidate’s width is larger than its height, the standard deviation of the brightness of the ROI is checked. This is due to the fact that incandescent spots such as lamps or fuses have a low standard deviation since their heat distribution is uniform. On the contrary, humans have different heat concentrations in their body parts, such as the head being warmer than the rest of the body. We have determined experimentally that the standard deviation of the human ROI has to be greater than 12. </span></p><p><span>The human candidate’s area is also required to be above a minimum area </span><em><span>A</span></em><span>min experimentally fixed according to features such as the camera height or the extension of the scenario. Finally, the final list of ROIs containing humans is the output of the people detection algorithm, that is, </span><em><span>RP</span></em><span>(t). </span></p><p><span>    </span></p><h3><a name="3-results-and-discussion" class="md-header-anchor"></a><span>3. Results and Discussion </span></h3><h4><a name="31-test-environment" class="md-header-anchor"></a><span>3.1. Test Environment </span></h4><p><span>The selected test environment is an outdoor scenario where a forward-looking infrared FLIR A-320 camera has been placed 6 meters above the ground level. The decision to use an outdoor environment is due to the fact that this kind of scenario offers a greater number of variations in temperature and lighting conditions, whereas an indoor environment is usually more controlled. The scenario does not have any predefined access, so that a pedestrian enters into the scene from the lower limits as well as at the left or right sides of the image. A platform constructed of concrete is located in the lower part of the scene. This material quickly absorbs the temperature of the environment. The same property is also present in the building placed in the scene background. The building shows additional problems for thermal-infrared human detection. The reason is that the thermal-infrared camera automatically performs thermal attenuation, which results in the lack of accuracy in obtaining far objects’ temperatures. The attenuation causes the thermal readings of pedestrians to be confused with the temperature of the building, this way hardening their isolation from the scene background. Figure 2 shows an image of the scenario as captured by the FLIR camera. </span></p><p><strong><span>Figure 2.</span></strong><span> Environment for validating the robustness of the approach. </span></p><p><img src="file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image015.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><h4><a name="32-test-sequences" class="md-header-anchor"></a><span>3.2. Test Sequences </span></h4><p><span>To evaluate our algorithms, we have tested a number of sequences at different temperatures and under different conditions. The main objective is to cover the maximum possible number of situations, both in complexity and variation of temperature. To do this, it was decided to include a range of winter and summer temperatures, ranging between –2° and 33°. We have also sought to work under different weather conditions from snow to sunshine. In addition, we used situations of varying complexity, from a single human walking on the scene up to three people meeting, with various actions that pedestrians can perform on an exterior scene. These actions range from attitudes in which humans are easy to detect such as walking or running to other more difficult, because people change the proportions the space they occupy, such as bending, sitting or even lying on the floor. Next, the different recorded sequences are described. Each of these twelve sequences is referred to by the temperature at which it was captured, followed by the atmospheric conditions at the time of the recording. </span></p><p><span>•   Sequence –2°</span><em><span>Foggy</span></em><span> features a human in the scenario (see Figure 3a). The pedestrian is mostly walking, but also performs actions such as crouching, running or sitting in the central concrete platform. The sequence was recorded in a moment where fog was partially covering the scene. It is not difficult to distinguish humans in the thermal-infrared spectrum, except when they are approach the building. </span></p><p><span>•   Sequence 2°</span><em><span>Snowy</span></em><span> was recorded after a snowfall, and therefore all the ground appears covered by snow (see Figure 3b). Behaviors within the sequence have a high complexity. During the course of the sequence three human repeatedly appear together (so that the algorithm has difficulty to separate them, as they often occlude each other). Various activities such as running, walking, bending or dropping items on the floor are made. </span></p><p><span>•   Sequence 3°</span><em><span>Sunny</span></em><span> (see Figure 3c) starts with a human walking in the environment. Sometimes, he/she carries out different actions such as crouching. Later, a second human is walking in different trajectories. Finally, both humans cross their paths, meeting on the concrete platform. </span></p><p><span>•   Another sequence named 8°</span><em><span>Night</span></em><span> was recorded to evaluate the performance of the approach under night conditions (see Figure 3d). The thermal-infrared spectrum introduces a number of problems. Indeed, buildings in the environment are still warm due to the heat accumulated during the day hours. Thus, the buildings are sometimes confused with humans walking in front of them. The sequence features two people walking in the scenario, occasionally crossing their paths. </span></p><p><span>•   Sequence 9°</span><em><span>Cloudy</span></em><span> was captured on a cloudy day (see Figure 3e), and in it, two people follow random paths across the stage. In the thermal-infrared spectrum humans remain easily distinguishable from the rest of the environment. </span></p><p><span>•   Now, sequence 10°</span><em><span>Cloudy</span></em><span> presents a simpler version of the above sequence, with one person walking across the stage and performing various actions such as bending and strolling along the worst lit areas of the stage, as are the shadows of the trees (see Figure 3f). </span></p><p><span>•   Sequence 15°</span><em><span>Dawning</span></em><span> was filmed at sunrise (see Figure 3g). During the scene, gradual changes in illumination and temperature are recorded, starting with the very dim lighting and increasing as the sequence advances. In the sequence two pedestrians continuously gather and meet, so that there are many occlusions. </span></p><p><span>•   In the sequence 15°</span><em><span>Cloudy</span></em><span> some more complex actions are performed by a single human, such as sitting in the central platform (see Figure 3h). The temperature rise causes the apparition of human reflections on the concrete platform, this way augmenting the difficulty for human detection in the infrared spectrum. </span></p><p><span>•   Sequence 18°</span><em><span>Sunny</span></em><span> contains groups of pedestrians (see Figure 3i). There is also the added difficulty that at this temperature the heat of the lawn and the environment in general increases, making it harder to distinguish humans, even to the naked eye in the captured frames in the thermal-infrared. </span></p><p><span>•   Sequence 23°</span><em><span>Sunny</span></em><span> (see Figure 3j) is much more complex than before, because, this time increases to three the number of humans who walk through the scene and gather several times, sitting or simply crossing. Again, the high temperature makes it difficult to distinguish humans in the thermal-infrared spectrum, the area above the concrete platform being especially critical. </span></p><p><strong><span>Figure 3.</span></strong><span> Example frames of the twelve sequences. (</span><strong><span>a</span></strong><span>) –2°</span><em><span>Foggy</span></em><span>; (</span><strong><span>b</span></strong><span>) 2°</span><em><span>Snowy</span></em><span>; (</span><strong><span>c</span></strong><span>) 3°</span><em><span>Sunny</span></em><span>; (</span><strong><span>d</span></strong><span>) 8°</span><em><span>Night</span></em><span>; (</span><strong><span>e</span></strong><span>) 9°</span><em><span>Cloudy</span></em><span>; (</span><strong><span>f</span></strong><span>) 10°</span><em><span>Cloudy</span></em><span>; (</span><strong><span>g</span></strong><span>) 15°</span><em><span>Dawning</span></em><span>; (</span><strong><span>h</span></strong><span>) 15°</span><em><span>Cloudy</span></em><span>; (</span><strong><span>i</span></strong><span>) 18°</span><em><span>Sunny</span></em><span>; (</span><strong><span>j</span></strong><span>) 23°</span><em><span>Sunny</span></em><span>; (</span><strong><span>k</span></strong><span>) 28°</span><em><span>Sunny</span></em><span>; (</span><strong><span>l</span></strong><span>) 33°</span><em><span>Sunny</span></em><span>. </span></p><p><img src="file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image019.gif" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>                    (</span><strong><span>a</span></strong><span>)                       (</span><strong><span>b</span></strong><span>)                       (</span><strong><span>c</span></strong><span>) </span></p><p><img src="file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image023.gif" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>                    (</span><strong><span>d</span></strong><span>)                        (</span><strong><span>e</span></strong><span>)                        (</span><strong><span>f</span></strong><span>) </span></p><p><img src="file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image027.gif" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>                    (</span><strong><span>g</span></strong><span>)                       (</span><strong><span>h</span></strong><span>)                        (</span><strong><span>i</span></strong><span>) </span></p><p><img src="file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image031.gif" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>                    (</span><strong><span>j</span></strong><span>)                        (</span><strong><span>k</span></strong><span>)                        (</span><strong><span>l</span></strong><span>) </span></p><p><span>•   Sequence 28°</span><em><span>Sunny</span></em><span> augments the difficulty of thermal-infrared pedestrian detection with the apparition of up to three pedestrians walking in the scene and performing actions such as sitting, crossing their paths, and meeting. The high temperature makes it quite difficult to distinguish </span></p><p><span>        humans   in   the   infrared  spectrum,   especially   on   the   concrete  platform   (see </span></p><p><span>Figure 3k). </span></p><p><span>•   Finally, sequence 33°</span><em><span>Sunny</span></em><span> was recorded with much heat. Humans are almost indistinguishable from the background in the thermal-infrared spectrum and appear always cooler than the rest of the environment (see Figure 3l). </span></p><p><span>    </span></p><h4><a name="33-assessment-criteria" class="md-header-anchor"></a><span>3.3. Assessment Criteria </span></h4><p><span>Some measures widely used by the computer vision community, such as recall, precision and F-score, were considered to evaluate the performance of the previously described segmentation algorithms. These measures are calculated as shown in Equations (4)–(6), respectively: </span></p><p><span>                                            </span><img src="file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image033.gif" referrerpolicy="no-referrer" alt="img"><span>                             (4) </span></p><p><span>                                          </span><img src="file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image035.gif" referrerpolicy="no-referrer" alt="img"><span>                            (5) </span></p><p><span>                                  </span><img src="file:///C:\Users\lenovo\AppData\Local\Temp\msohtmlclip1\01\clip_image037.gif" referrerpolicy="no-referrer" alt="img"><span>                      (6) </span></p><p><span>where TP (true positives) is the amount of correct detections in the sequence, FP (false positives) are the mistaken detections gotten and FN (false negatives) is the amount of humans really present in the scene but not detected. </span></p><p><span>The precision shows the percentage of true positives with respect to the total number of detections, </span></p><p><em><span>i.e.</span></em><span>, the probability of detections which really correspond to a human. On the other hand, the recall shows the probability of a human on the scene to be really detected. Finally, F-score is a weighted average, which provides an overall vision of the system performance, considering precision and recall. </span></p><h4><a name="34-roi-extraction-results" class="md-header-anchor"></a><span>3.4. ROI Extraction Results </span></h4><p><span>The results obtained are shown in Table 1. The first conclusion to be drawn is quite obvious. In general, the thermal-infrared spectrum is suitable for detecting human under low and medium recorded temperatures. Notice that the sequence captured at 8° shows worse results, as was recorded in the early hours of the night and the temperature had not yet fallen. Under all these thermal conditions the </span><em><span>F-score</span></em><span> is maintained over a good 0.83 value. </span></p><p><span>However, the performance declines drastically when the temperature of the scene rises above 20°. This is due to the fact that the thermal radiation of humans is very similar to the temperature of the buildings. Indeed, the sun warms the scene directly, affecting the elements of it. This has a significant impact on the final sequence, in which humans are totally “unified” with the environment and the distinction is almost impossible, even for a human observer who is supervising the frames captured in thermal-infrared. Notice that the </span><em><span>recall</span></em><span> value falls down dramatically by only incrementing a few degrees in the ambient temperature. The 33°</span><em><span>Sunny</span></em><span> sequence shows a very bad performance (0.03). </span></p><p><span>Some other conclusions can also be drawn. These are related with atmospheric environmental conditions. In accordance with the results obtained in Table 1, we can conclude that there is no difference between snowy, cloudy and sunny conditions beneath a given temperature (around 20°). Indeed, the </span><em><span>recall</span></em><span> and the </span><em><span>F-score</span></em><span> are always kept above excellent 0.91 and 0.94 values, respectively. However, notice that the foggy sequence drops the value of </span><em><span>recall</span></em><span> down to 0.71, which is still a good value, but nor comparable to other scores obtained for a similar temperature. </span></p><p><span>This way we can conclude that pedestrian ROI extraction in the thermal-infrared spectrum provides excellent results for low and medium ambient temperatures, but the results could be affected by some specific weather conditions. </span></p><p><span>    </span></p><p><strong><span>Table 1.</span></strong><span> Results of pedestrian ROI extraction in thermal-infrared. </span></p><figure><table><thead><tr><th><span>  </span><strong><span>Sequence</span></strong><span>   </span></th><th><span>  </span><strong><span>TP</span></strong><span>   </span></th><th><span>  </span><strong><span>FP</span></strong><span>   </span></th><th><span>  </span><strong><span>FN</span></strong><span>   </span></th><th><span>  </span><strong><span>*Recall</span><span>*</span></strong><span>   </span></th><th><span>  </span><strong><span>*Precision</span><span>*</span></strong><span>   </span></th><th><span>  </span><strong><span>*F-Score</span><span>*</span></strong><span>   </span></th></tr></thead><tbody><tr><td><span>  2°</span><em><span>Foggy</span></em><span>   </span></td><td><span>  11,928   </span></td><td><span>  147   </span></td><td><span>  4,784   </span></td><td><span>  0.71   </span></td><td><span>  0.99   </span></td><td><span>  0.83   </span></td></tr><tr><td><span>  2°</span><em><span>Snowy</span></em><span>   </span></td><td><span>  3,224   </span></td><td><span>  163   </span></td><td><span>  156   </span></td><td><span>  0.95   </span></td><td><span>  0.95   </span></td><td><span>  0.95   </span></td></tr><tr><td><span>  3°</span><em><span>Sunny</span></em><span>   </span></td><td><span>  2,902   </span></td><td><span>  295   </span></td><td><span>  44   </span></td><td><span>  0.98   </span></td><td><span>  0.91   </span></td><td><span>  0.94   </span></td></tr><tr><td><span>  8°</span><em><span>Noche</span></em><span>   </span></td><td><span>  4,787   </span></td><td><span>  766   </span></td><td><span>  1,112   </span></td><td><span>  0.81   </span></td><td><span>  0.86   </span></td><td><span>  0.83   </span></td></tr><tr><td><span>  9°</span><em><span>Cloudy</span></em><span>   </span></td><td><span>  1,618   </span></td><td><span>  61   </span></td><td><span>  105   </span></td><td><span>  0.94   </span></td><td><span>  0.96   </span></td><td><span>  0.95   </span></td></tr><tr><td><span>  10°</span><em><span>Cloudy</span></em><span>   </span></td><td><span>  1,827   </span></td><td><span>  12   </span></td><td><span>  22   </span></td><td><span>  0.99   </span></td><td><span>  0.99   </span></td><td><span>  0.99   </span></td></tr><tr><td><span>  15°</span><em><span>Dawning</span></em><span>   </span></td><td><span>  3,957   </span></td><td><span>  12   </span></td><td><span>  293   </span></td><td><span>  0.93   </span></td><td><span>  1.00   </span></td><td><span>  0.96   </span></td></tr><tr><td><span>  15°</span><em><span>Cloudy</span></em><span>   </span></td><td><span>  1,684   </span></td><td><span>  51   </span></td><td><span>  160   </span></td><td><span>  0.91   </span></td><td><span>  0.97   </span></td><td><span>  0.94   </span></td></tr><tr><td><span>  18°</span><em><span>Sunny</span></em><span>   </span></td><td><span>  2,185   </span></td><td><span>  19   </span></td><td><span>  176   </span></td><td><span>  0.93   </span></td><td><span>  0.99   </span></td><td><span>  0.96   </span></td></tr><tr><td><span>  23°</span><em><span>Sunny</span></em><span>   </span></td><td><span>  2,174   </span></td><td><span>  363   </span></td><td><span>  1,448   </span></td><td><span>  0.60   </span></td><td><span>  0.86   </span></td><td><span>  0.71   </span></td></tr><tr><td><span>  28°</span><em><span>Sunny</span></em><span>   </span></td><td><span>  3,077   </span></td><td><span>  160   </span></td><td><span>  4,861   </span></td><td><span>  0.39   </span></td><td><span>  0.96   </span></td><td><span>  0.55   </span></td></tr><tr><td><span>  33°</span><em><span>Sunny</span></em><span>   </span></td><td><span>  123   </span></td><td><span>  23   </span></td><td><span>  3,393   </span></td><td><span>  0.03   </span></td><td><span>  0.84   </span></td><td><span>  0.04   </span></td></tr></tbody></table></figure><h3><a name="4-conclusions" class="md-header-anchor"></a><span>4. Conclusions </span></h3><p><span>This article has provided comprehensive information about tests that have been conducted to evaluate the performance of a new algorithm developed for detecting human in thermal-infrared video. The paper has described our thermal-infrared pedestrian ROI extraction algorithm. Then, the evaluation of the proposal has been introduced in detail. The results allowed us to assess the validity of our thermal-infrared proposal to robustly detect pedestrians under varying dynamic outdoor conditions. We have also been able to study under which weather conditions and temperatures the approach is consistent and throws from good up to excellent detection results for videos captured by a forward-looking infrared FLIR A-320 camera. </span></p><h1><a name="acknowledgments" class="md-header-anchor"></a><span>Acknowledgments </span></h1><p><span>This work was partially supported by Spanish Ministerio de Economía y Competitividad/FEDER under TIN2010-20845-C03-01 and TIN2013-47074-C2-1-R grants. </span></p><h1><a name="author-contributions" class="md-header-anchor"></a><span>Author Contributions </span></h1><p><span>Antonio Fernández-Caballero, María T. López and Juan Serrano-Cuerda have made substantial contributions in the definition of the research line, as well as in experimentation, data analysis, and manuscript preparation. </span></p><p><strong><span>Conflicts of Interest</span></strong><span> </span></p><p><span>The authors declare no conflict of interest. </span></p><h1><a name="references" class="md-header-anchor"></a><span>References </span></h1><p><span>\1.     Dollár, P.; Wojek, C.; Schiele, B.; Perona, P. Pedestrian detection: An evaluation of the state of the art. </span><em><span>IEEE Trans. Patt. Anal. Mach. Intell.</span></em><span> </span><strong><span>2012</span></strong><span>, </span><em><span>34</span></em><span>, 743–761. </span></p><p><span>\2.     Navarro, E.; Fernández-Caballero, A.; Martínez-Tomás, R. Intelligent multisensory systems in support of information society. </span><em><span>Int. J. Syst. Sci</span></em><span>. </span><strong><span>2014</span></strong><span>, </span><em><span>45</span></em><span>, 711–713. </span></p><p><span>\3.     Costa, D.G.; Guedes, L.A.; Vasques, F.; Portugal, P. Adaptive monitoring relevance in camera networks for critical surveillance applications. </span><em><span>Int. J. Distri. Sens. N.</span></em><span> </span><strong><span>2013</span></strong><span>, </span><em><span>2013</span></em><span>, 836721:1–836721:14. </span></p><p><span>\4.     Enzweiler, M.; Gavrila, D. Monocular pedestrian detection: Survey and experiments. </span><em><span>IEEE Trans. Patt. Anal. Mach. Intell.</span></em><span> </span><strong><span>2009</span></strong><span>, </span><em><span>31</span></em><span>, 2179–2195. </span></p><p><span>\5.     Fernández-Caballero, A.; López, M.T.; Saiz-Valverde, S. Dynamic stereoscopic selective visual attention (DSSVA): Integrating motion and shape with depth in video segmentation. </span><em><span>Expert Syst. Appl</span></em><span>. </span><strong><span>2008</span></strong><span>, </span><em><span>34</span></em><span>, 1394–1402. </span></p><p><span>\6.     Fernández-Caballero, A.; López, M.T.; Castillo, J.M.; Maldonado-Bascón, S. Real-time accumulative computation motion detectors. </span><em><span>Sensors</span></em><span> </span><strong><span>2009</span></strong><span>, </span><em><span>9</span></em><span>, 10044–10065. </span></p><p><span>\7.     Schwartz, W.; Kembhavi, A.; Harwood, D.; Davis, L. Human detection using partial least squares analysis. In Proceedings of the IEEE 12th International Conference on Computer Vision, Kyoto, Japan, 27 September–4 October 2009; pp. 24–31. </span></p><p><span>\8.     Olmeda, D.; de la Escalera, A.; Armingol, J. Far infrared pedestrian detection and tracking for night driving. </span><em><span>Robotica</span></em><span> </span><strong><span>2011</span></strong><span>, </span><em><span>29</span></em><span>, 495–505. </span></p><p><span>\9.     Li, J.; Gong, W.; Li, W.; Liu, X. Robust pedestrian detection in thermal infrared imagery using the wavelet transform. </span><em><span>Infrared Phys. Tech.</span></em><span> </span><strong><span>2010</span></strong><span>, </span><em><span>53</span></em><span>, 267–273. </span></p><p><span>\10.   Kumar, P.; Mittal, A.; Kumar, P. Fusion of thermal infrared and visible spectrum video for robust surveillance. In Proceedings of the Computer Vision, Graphics and Image Processing, Madurai, India, 13–16 December 2006; pp. 528–539. </span></p><p><span>\11.   Lamberti, F.; Sanna, A.; Paravati, G. Improving robustness of infrared target tracking algorithms based on template matching. </span><em><span>IEEE Aerosp. Electron. Syst. Mag.</span></em><span> </span><strong><span>2011</span></strong><span>, </span><em><span>47</span></em><span>, 1467–1480. </span></p><p><span>\12.   Wang, J.-T.; Chen, D.-B.; Chen, H.-Y.; Yang, J.-Y. On pedestrian detection and tracking in infrared videos. </span><em><span>Patt. Recog. Lett.</span></em><span> </span><strong><span>2012</span></strong><span>, </span><em><span>33</span></em><span>, 775–785. </span></p><p><span>\13.   Xu, F.; Liu, X.; Fujimura, K. Pedestrian detection and tracking with night vision. </span><em><span>IEEE Trans. Intell. Transp. Syst.</span></em><span> </span><strong><span>2005</span></strong><span>, </span><em><span>6</span></em><span>, 63–71. </span></p><p><span>\14.   Goubet, E.; Katz, J.; Porikli, F. Pedestrian tracking using thermal infrared imaging. In </span><em><span>Infrared Technology and Applications XXXII</span></em><span>; SPIE: Bellingham, WA, USA, 2006; pp. 797–808. </span></p><p><span>\15.   Fang, Y.; Yamada, K.; Ninomiya, Y.; Horn, B.; Masaki, I. A shape-independent method for pedestrian detection with far-infrared images. </span><em><span>IEEE Trans. Veh. Technol.</span></em><span> </span><strong><span>2004</span></strong><span>, </span><em><span>53</span></em><span>, 1679–1697. </span></p><p><span>\16.   Fernández-Caballero, A.; Castillo, J.C.; Serrano-Cuerda, J.; Maldonado-Bascón, S. Real-time human segmentation in infrared videos. </span><em><span>Expert Syst. Appl.</span></em><span> </span><strong><span>2011</span></strong><span>, </span><em><span>38</span></em><span>, 2577–2584. </span></p><p><span>\17.   Sokolova, M.V.; Serrano-Cuerda, J.; Castillo, J.C.; Fernández-Caballero, A. Fuzzy model for human fall detection in infrared video. </span><em><span>J. Intell. Fuzzy Syst.</span></em><span> </span><strong><span>2013</span></strong><span>, </span><em><span>24</span></em><span>, 215–228. </span></p><p><span>© 2014 by the authors; licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution license (</span><a href='http://creativecommons.org/licenses/by/3.0/' target='_blank' class='url'>http://creativecommons.org/licenses/by/3.0/</a><span>). </span></p><p>&nbsp;</p><hr /><p>&nbsp;</p></div>
+</body>
+</html>
